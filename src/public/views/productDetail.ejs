@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/style.css">
+  <title>E-Shop</title>
+</head>
+<%-include('./partials/header.ejs')%>
+
+<body class="flex flex-col min-h-screen">
+
+
+<!-- Container -->
+<div style='background-color:rgba(0, 0, 0, 0)'>
+  <div class="container px-5 py-24 mx-auto" style="cursor: auto;">
+    <div class="lg:w-4/5 mx-auto flex flex-wrap bg-emerald-200 px-5 py-5">
+      <img alt="ecommerce" class="w-50 object-cover object-center rounded" src="<%=product.foto%>" style="cursor: auto;">
+      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0" style="cursor: auto;">
+        <h1 class="text-black text-3xl title-font font-medium mb-1" style="cursor: auto;"><%=product.nombre%></h1>
+        <div class="flex mb-4">
+          <p class="text-black">Codigo: <%=product.codigo%></p>
+          
+        </div>
+        <p class="leading-relaxed text-black"><%=product.descripcion%></p>
+        <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
+
+        </div>
+        <div class="flex">
+          <span class="title-font font-medium text-2xl text-black">$<%=product.precio%></span>
+          <button class="flex ml-auto text-white bg-indigo-800 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Comprar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <%-include('./partials/footer.ejs')%>
+  <script src="../JS/index.js"></script>
+</body>
+</html>

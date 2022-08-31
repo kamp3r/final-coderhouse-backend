@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/style.css">
+  <title>E-Shop</title>
+</head>
+<%-include('./partials/header.ejs')%>
+
+<body class="flex flex-col min-h-screen">
+  <section class="mx-10 my-10">
+    <h1>Adios! <%=user.name%></h1>
+  </section>
+
+  <%-include('./partials/footer.ejs')%>
+  <script src="../JS/index.js"></script>
+<script src="../JS/logout.js"></script>
+</body>
+
+</html>

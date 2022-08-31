@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/style.css">
+  <title>E-Shop</title>
+</head>
+<%-include('./partials/header.ejs')%>
+
+<body class="flex flex-col min-h-screen">
+  <div class="hero min-h-[75vh]" style="background-image: url('../images/casa-central-de-la-bodega___BkY8Hk-UM_1256x620__1.webp');">
+    <div class="hero-overlay bg-opacity-70"></div>
+    <div class="hero-content text-center text-white">
+      <div class="max-w-md">
+        <h1 class="mb-5 text-5xl font-bold">Bienvenido a Vinit!</h1>
+        <p class="mb-5">Lo llevamos de la bodega a tu casa en 24hs!</p>
+        <a href="/products" class="btn btn-accent">Ver productos</a>
+      </div>
+    </div>
+  </div>
+
+  <%-include('./partials/footer.ejs')%>
+  <script src="../JS/index.js"></script>
+</body>
+</html>

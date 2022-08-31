@@ -1,0 +1,113 @@
+<header>
+    <nav class="bg-emerald-200 shadow-lg">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between">
+          <div class="flex space-x-40">
+            <div class="flex">
+              <!-- Website Logo -->
+              <a href="/home" class="flex flex-col items-center py-4 px-2">
+                <img src="../../images/icons8-copa-de-vino-100.png" style="width: 50px"/>
+                <span class="font-semibold text-black text-lg">Vinit</span>
+              </a>
+            </div>
+            <!-- Primary Navbar items -->
+            <ul class="hidden md:flex items-center space-x-2">
+              <li <% if (title === 'home') { %> class="py-1 px-2 text-black border-b-4 border-green-500 font-semibold" <%}else{%>class="py-1 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"><%}%><a href="/home">Home</a> </li>
+                              <li <% if (title === 'products') { %> class="py-1 px-2 text-black border-b-4 border-green-500 font-semibold"<%}else{%>class="py-1 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"><%}%><a href="/products">Productos</a> </li>
+                          <li <% if (title === 'about') { %> class="py-1 px-2 text-black border-b-4 border-green-500 font-semibold"<%}else{%>class="py-1 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"><%}%><a href="/about">Sobre Nosotros</a> </li>
+                      
+                              </ul>
+                </div>
+                <!-- Secondary Navbar items -->
+                <div class="hidden md:flex items-center space-x-1 ">
+                  <%if(!user){%>
+                  <a href="/login" class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300">Log In</a>
+                  <a href="/register" class="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300">Sign Up</a>
+                  <%}else{%>
+                    <%if(user.role === 'admin'){%>
+                      <a href="/admin" class="py-2 px-2 font-medium text-white bg-blue-900 rounded hover:bg-blue-400 transition duration-300">Admin</a>
+                      <a href="/profile" class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300 flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                        </svg>Perfil</a>
+                    <%}else{%>
+                      <a href="/myCart/checkout" class="flex items-center py-2 px-4 font-medium text-white bg-blue-900 rounded hover:bg-blue-400 transition duration-300"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg> Cart
+                          <%if(typeof cart !== 'undefined'){%>
+                            <p class="bg-blue-400 rounded-full ml-4 px-3"><%=cart.length%></p>
+                          <%}else{%>
+                            <p class="bg-blue-400 rounded-full ml-4 px-3"> 0 </p>
+                          <%}%>
+                      </a>
+                  <a href="/profile" class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300 flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                    </svg>Perfil</a>
+                    <%}%>
+                  <a href="/logout" class="py-2 px-2 font-medium text-white bg-red-500 rounded hover:bg-red-400 transition duration-300">Logout</a>
+                  <%}%>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                  <button class="outline-none mobile-menu-button">
+                  <svg class=" w-6 h-6 text-gray-500 hover:text-green-500 "
+                    x-show="!showMenu"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path d="M4 6h16M4 12h16M4 18h16"></path>
+                  </svg>
+                </button>
+                </div>
+              </div>
+            </div>
+            <!-- mobile menu -->
+            <div class="hidden mobile-menu">
+              <ul class="flex flex-col items-center">
+              <li <% if (title === 'home') { %> class="py-1 px-2 text-black border-b-4 border-green-500 font-semibold" <%}else{%>class="py-1 px-2 text-gray-500 font-semibold hover:bg-green-500 hover:text-white transition duration-300 text-center w-full"><%}%><a href="/home">Home</a></li>
+              <li <% if (title === 'products') { %> class="py-1 px-2 text-black border-b-4 border-green-500 font-semibold"<%}else{%>class="py-1 px-2 text-gray-500 font-semibold hover:bg-green-500 hover:text-white transition duration-300 text-center w-full"><%}%><a href="/products">Productos</a></li>
+              <li <% if (title === 'about') { %> class="py-1 px-2 text-black border-b-4 border-green-500 font-semibold"<%}else{%>class="py-1 px-2 text-gray-500 font-semibold hover:bg-green-500 hover:text-white transition duration-300 text-center w-full"><%}%><a href="/about">Sobre Nosotros</a> </li>
+            </ul>
+            <div class="flex justify-center items-center space-x-5 py-4">
+              <%if(!user){%>
+              <a href="/login" class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300">Log In</a>
+              <a href="/register" class="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300">Sign Up</a>
+              <%}else{%>
+                <%if(user.role === 'admin'){%>
+                  <a href="/admin" class="py-2 px-2 font-medium text-white bg-blue-900 rounded hover:bg-blue-400 transition duration-300">Admin</a>
+                  <a href="/profile" class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300 flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                    </svg>
+                    Perfil
+                  </a>
+                <%}else{%>
+              <a href="/profile" class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300 flex">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                </svg>
+                Perfil
+              </a>
+              <a href="/myCart/checkout" class="flex items-center py-2 px-4 font-medium text-white bg-blue-900 rounded hover:bg-blue-400 transition duration-300"> 
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg> Cart
+                  <%if(typeof cart !== 'undefined'){%>
+                    <p class="bg-blue-400 rounded-full ml-4 px-3"><%=cart.length%></p>
+                  <%}else{%>
+                    <p class="bg-blue-400 rounded-full ml-4 px-3"> 0 </p>
+                  <%}%>
+              </a>
+                <%}%>
+              <a href="/logout" class="py-2 px-2 font-medium text-white bg-red-500 rounded hover:bg-red-400 transition duration-300">Logout</a>
+              <%}%>
+            </div>
+          </div>
+    </nav>
+  </header>

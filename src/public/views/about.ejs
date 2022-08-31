@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/style.css">
+  <title>E-Shop</title>
+</head>
+<%-include('./partials/header.ejs')%>
+
+<body class="flex flex-col min-h-screen">
+
+  <div class="hero min-h-[75vh] bg-blue-200">
+    <div class="hero-content flex-col lg:flex-row">
+      <img src="../images/viniterr.webp" class="max-w-sm rounded-lg shadow-4xl" />
+      <div>
+        <h1 class="text-5xl font-bold text-gray-900">Somos nuevos, y tenes que probarnos</h1>
+        <p class="py-6 text-gray-900">Descendientes de mendocinos, extrañando la tierra de nuestros viejos, intentamos llevar lo mejor de sus tierras hacia vos, para que lo disfrutes como quieras</p>
+      </div>
+    </div>
+  </div>
+
+  <%-include('./partials/footer.ejs')%>
+  <script src="../JS/index.js"></script>
+</body>
+</html>
