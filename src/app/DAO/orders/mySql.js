@@ -10,8 +10,8 @@ class MySQLDao extends IDao {
   constructor() {
     super();
 
-    this.tableName = 'ordenes';
-    this.tableNameItems = 'ordenes_items';
+    this.tableName = 'orders';
+    this.tableNameItems = 'orders_items';
     createTableOrders(this.tableName);
     createTableOrdersItems(this.tableNameItems);
   }
@@ -24,10 +24,10 @@ class MySQLDao extends IDao {
     return instanciaMySQL;
   }
 
-  async create(cliente, itemsClientCart) {
+  async create(client, itemsClientCart) {
     let newOrderData = await knex(this.tableName).insert({
-      email: cliente.email,
-      direccion: cliente.direccion,
+      email: client.email,
+      address: client.address,
     });
 
     let orderItems = itemsClientCart.map((e) => {
@@ -48,25 +48,25 @@ class MySQLDao extends IDao {
     let ordersDB = await knex(this.tableName).select('*').where(query);
 
     let ordersItemsDB = await knex(this.tableNameItems)
-      .join('productos', 'product_id', '=', 'productos.id')
+      .join('products', 'product_id', '=', 'products.id')
       .select(
-        'productos.codigo',
-        'productos.nombre',
-        'productos.descripcion',
-        'productos.foto',
-        'ordenes_items.precio',
-        'ordenes_items.cantidad',
-        'ordenes_items.order_id'
+        'products.codigo',
+        'products.nombre',
+        'products.descripcion',
+        'products.foto',
+        'orders_items.precio',
+        'orders_items.cantidad',
+        'orders_items.order_id'
       );
 
     let dataResult = ordersDB.map((orden) => {
       return {
         id: orden.id,
         email: orden.email,
-        direccion: orden.direccion,
-        estado: orden.estado,
+        address: orden.address,
+        status: orden.status,
         timestamp: orden.timestamp,
-        productos: ordersItemsDB.filter((item) => item.order_id == orden.id),
+        products: ordersItemsDB.filter((item) => item.order_id == orden.id),
       };
     });
 
@@ -77,15 +77,15 @@ class MySQLDao extends IDao {
     let ordersDB = await knex(this.tableName).select('*').where('id', id);
 
     let ordersItemsDB = await knex(this.tableNameItems)
-      .join('productos', 'product_id', '=', 'productos.id')
+      .join('products', 'product_id', '=', 'products.id')
       .select(
-        'productos.codigo',
-        'productos.nombre',
-        'productos.descripcion',
-        'productos.foto',
-        'ordenes_items.precio',
-        'ordenes_items.cantidad',
-        'ordenes_items.order_id'
+        'products.codigo',
+        'products.nombre',
+        'products.descripcion',
+        'products.foto',
+        'orders_items.precio',
+        'orders_items.cantidad',
+        'orders_items.order_id'
       )
       .where('order_id', id);
 
@@ -93,10 +93,10 @@ class MySQLDao extends IDao {
       return {
         id: orden.id,
         email: orden.email,
-        direccion: orden.direccion,
-        estado: orden.estado,
+        address: orden.address,
+        status: orden.status,
         timestamp: orden.timestamp,
-        productos: ordersItemsDB,
+        products: ordersItemsDB,
       };
     });
 

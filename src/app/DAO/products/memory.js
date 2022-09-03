@@ -24,6 +24,7 @@ class MemoryDao extends IDao {
       descripcion: product.descripcion,
       codigo: product.codigo,
       foto: product.foto,
+      categoria: product.categoria,
       precio: product.precio,
       stock: product.stock,
       timestamp: new Date().toLocaleString(),

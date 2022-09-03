@@ -19,63 +19,63 @@ class FileSystemDao extends IDao {
     return instaciaFileSystem;
   }
 
-  create(cliente, carrito) {
-    let ordenes = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
-    let nuevaOrden = {
+  create(client, cart) {
+    let orders = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
+    let newOrder = {
       id: uuidv4(),
-      estado: 'generada',
-      productos: carrito.map((e) => {
+      status: 'generated',
+      products: cart.map((e) => {
         return {
           id: uuidv4(),
-          codigo: e.producto.codigo,
-          nombre: e.producto.nombre,
-          descripcion: e.producto.descripcion,
-          precio: e.producto.precio,
-          foto: e.producto.foto,
-          cantidad: e.cantidad,
+          code: e.product.code,
+          name: e.product.name,
+          description: e.product.description,
+          price: e.product.price,
+          picture: e.product.picture,
+          qty: e.qty,
         };
       }),
-      email: cliente.email,
-      direccion: cliente.direccion,
+      email: client.email,
+      address: client.address,
       timestamp: new Date().toLocaleString(),
     };
-    ordenes.push(nuevaOrden);
-    fs.writeFileSync(this.urlPath, JSON.stringify(ordenes, null, '\t'));
-    return nuevaOrden;
+    orders.push(newOrder);
+    fs.writeFileSync(this.urlPath, JSON.stringify(orders, null, '\t'));
+    return newOrder;
   }
 
   read(query) {
-    let ordenes = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
-    let ordenesCliente = ordenes.filter((e) => e.email == query.email);
-    return ordenesCliente;
+    let orders = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
+    let ordersclient = orders.filter((e) => e.email == query.email);
+    return ordersclient;
   }
 
   readId(id) {
-    let ordenes = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
-    let orden = ordenes.filter((e) => e.id == id);
+    let orders = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
+    let orden = orders.filter((e) => e.id == id);
     return orden[0];
   }
 
   update(id, data) {
-    let ordenes = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
-    let orden = ordenes.filter((p) => p.id == id);
+    let orders = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
+    let orden = orders.filter((p) => p.id == id);
     if (orden.length) {
-      let ordenActualizada = Object.assign(orden[0], data);
-      ordenActualizada.timestamp = new Date().toLocaleString();
-      fs.writeFileSync(this.urlPath, JSON.stringify(ordenes, null, '\t'));
-      return ordenActualizada;
+      let orderUpdate = Object.assign(orden[0], data);
+      orderUpdate.timestamp = new Date().toLocaleString();
+      fs.writeFileSync(this.urlPath, JSON.stringify(orders, null, '\t'));
+      return orderUpdate;
     } else {
       return false;
     }
   }
 
   delete(id) {
-    let ordenes = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
-    let index = ordenes.findIndex((e) => e.id == id);
+    let orders = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
+    let index = orders.findIndex((e) => e.id == id);
     if (index >= 0) {
-      const ordenEliminada = ordenes.splice(index, 1);
-      fs.writeFileSync(this.urlPath, JSON.stringify(ordenes, null, '\t'));
-      return ordenEliminada[0];
+      const orderDeleted = orders.splice(index, 1);
+      fs.writeFileSync(this.urlPath, JSON.stringify(orders, null, '\t'));
+      return orderDeleted[0];
     } else {
       return false;
     }

@@ -24,11 +24,12 @@ class FileSystemDao extends IDao {
     const newProduct = {
       id: uuidv4(),
       timestamp: new Date().toLocaleString(),
-      nombre: product.nombre,
+      name: product.name,
       descripcion: product.descripcion,
-      codigo: product.codigo,
+      category: product.category,
+      code: product.code,
       foto: product.foto,
-      precio: product.precio,
+      price: product.price,
       stock: product.stock,
     };
     products.push(newProduct);
@@ -76,10 +77,11 @@ class FileSystemDao extends IDao {
     const products = this.read();
     const data = products.filter(
       (p) =>
-        p.nombre.toLowerCase() == filters.nombre.toLowerCase() ||
-        p.codigo == filters.codigo ||
-        (p.precio >= Number(filters.precioMin) &&
-          p.precio <= Number(filters.precioMax)) ||
+        p.name.toLowerCase() == filters.name.toLowerCase() ||
+        p.code == filters.code ||
+        p.category == filters.category ||
+        (p.price >= Number(filters.priceMin) &&
+          p.price <= Number(filters.priceMax)) ||
         (p.stock >= Number(filters.stockMin) &&
           p.stock <= Number(filters.stockMax))
     );

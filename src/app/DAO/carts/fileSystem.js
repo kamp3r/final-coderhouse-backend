@@ -20,49 +20,49 @@ class FileSystemDao extends IDao {
     return instaciaFileSystem;
   }
 
-  create(id_producto, cantidad, id_client) {
-    const producto = fsDaoProducts.readId(id_producto);
-    let carritos = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
-    let previousItem = carritos.filter((e) => {
-      return e.producto.id == id_producto && e.client_id == id_client;
+  create(id_product, qty, id_client) {
+    const product = fsDaoProducts.readId(id_product);
+    let cart = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
+    let previousItem = cart.filter((e) => {
+      return e.product.id == id_product && e.client_id == id_client;
     });
     if (previousItem.length) {
-      previousItem[0].cantidad += cantidad;
-      fs.writeFileSync(this.urlPath, JSON.stringify(carritos, null, '\t'));
+      previousItem[0].qty += qty;
+      fs.writeFileSync(this.urlPath, JSON.stringify(cart, null, '\t'));
       return previousItem[0];
     } else {
       const newProductCart = {
         id: uuidv4(),
         timestamp: new Date().toLocaleString(),
-        producto: producto,
-        cantidad: cantidad,
+        product: product,
+        qty: qty,
         client_id: id_client,
       };
-      carritos.push(newProductCart);
-      fs.writeFileSync(this.urlPath, JSON.stringify(carritos, null, '\t'));
+      cart.push(newProductCart);
+      fs.writeFileSync(this.urlPath, JSON.stringify(cart, null, '\t'));
       return newProductCart;
     }
   }
 
   read(client_id) {
-    const carritos = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
-    const carritoUser = carritos.filter((e) => e.client_id == client_id);
-    return carritoUser;
+    const cart = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
+    const cartUser = cart.filter((e) => e.client_id == client_id);
+    return cartUser;
   }
 
   readId(id) {
-    const carritos = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
-    const carrito = carritos.filter((e) => e.id == id);
-    return carrito;
+    const cart = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
+    const carts = cart.filter((e) => e.id == id);
+    return carts;
   }
 
   delete(id) {
-    let carritos = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
-    const index = carritos.findIndex((carrito) => carrito.id == id);
+    let cart = JSON.parse(fs.readFileSync(this.urlPath, 'utf-8'));
+    const index = cart.findIndex((carts) => carts.id == id);
     if (index >= 0) {
-      const carritoEliminado = carritos.splice(index, 1);
-      fs.writeFileSync(this.urlPath, JSON.stringify(carritos, null, '\t'));
-      return carritoEliminado[0];
+      const cartsDeleted = cart.splice(index, 1);
+      fs.writeFileSync(this.urlPath, JSON.stringify(cart, null, '\t'));
+      return cartsDeleted[0];
     } else {
       return false;
     }

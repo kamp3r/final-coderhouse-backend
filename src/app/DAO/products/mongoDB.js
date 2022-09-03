@@ -9,7 +9,7 @@ class MongoDBDao extends IDao {
   constructor() {
     super();
 
-    this.nombreColeccion = productModel;
+    this.collection = productModel;
     this.conectarDB();
   }
 
@@ -27,11 +27,11 @@ class MongoDBDao extends IDao {
   }
 
   async create(data) {
-    return await this.nombreColeccion.create(data);
+    return await this.collection.create(data);
   }
 
   async read() {
-    const data = await this.nombreColeccion.find({});
+    const data = await this.collection.find({});
     if (data.length > 0) {
       return data;
     } else {
@@ -40,18 +40,18 @@ class MongoDBDao extends IDao {
   }
 
   async readId(id) {
-    const data = await this.nombreColeccion.findById(id);
+    const data = await this.collection.findById(id);
     return data;
   }
 
   async update(id, data) {
-    return await this.nombreColeccion.findByIdAndUpdate({ _id: id }, data, {
+    return await this.collection.findByIdAndUpdate({ _id: id }, data, {
       new: true,
     });
   }
 
   async delete(id) {
-    let data = await this.nombreColeccion.findByIdAndRemove(
+    let data = await this.collection.findByIdAndRemove(
       { _id: id },
       { rawResult: true }
     );
@@ -59,12 +59,13 @@ class MongoDBDao extends IDao {
   }
 
   async search(filters) {
-    filters.nombre.length == 0 ? (filters.nombre = null) : '';
-    return await this.nombreColeccion.find({
+    filters.name.length == 0 ? (filters.name = null) : '';
+    return await this.collection.find({
       $or: [
-        { nombre: { $regex: '.*' + filters.nombre + '.*', $options: 'i' } },
-        { codigo: filters.codigo },
-        { precio: { $gte: filters.precioMin, $lte: filters.precioMax } },
+        { name: { $regex: '.*' + filters.name + '.*', $options: 'i' } },
+        { code: filters.code },
+        { category: filters.category},
+        { price: { $gte: filters.priceMin, $lte: filters.priceMax } },
         { stock: { $gte: filters.stockMin, $lte: filters.stockMax } },
       ],
     });

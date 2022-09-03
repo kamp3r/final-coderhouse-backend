@@ -10,7 +10,7 @@ class MongoDBDao extends IDao {
   constructor() {
     super();
 
-    this.nombreColeccion = ordersModel;
+    this.collection = ordersModel;
     this.conectarDB();
   }
 
@@ -27,41 +27,41 @@ class MongoDBDao extends IDao {
     await db.connect();
   }
 
-  async create(cliente, carrito) {
-    let productos = carrito.map((e) => {
+  async create(client, cart) {
+    let products = cart.map((e) => {
       return {
-        codigo: e.producto.codigo,
-        nombre: e.producto.nombre,
-        descripcion: e.producto.descripcion,
-        precio: e.producto.precio,
-        foto: e.producto.foto,
-        cantidad: e.cantidad,
+        code: e.producto.code,
+        name: e.producto.name,
+        description: e.producto.description,
+        price: e.producto.price,
+        picture: e.producto.picture,
+        qty: e.qty,
       };
     });
-    await shoppingCartModel.deleteMany({ cliente: cliente.id });
-    return await this.nombreColeccion.create({
-      productos: productos,
-      email: cliente.email,
-      direccion: cliente.direccion,
+    await shoppingCartModel.deleteMany({ client: client.id });
+    return await this.collection.create({
+      products: products,
+      email: client.email,
+      address: client.address,
     });
   }
 
   async read(query) {
-    return await this.nombreColeccion.find(query);
+    return await this.collection.find(query);
   }
 
   async readId(id) {
-    return await this.nombreColeccion.findById(id);
+    return await this.collection.findById(id);
   }
 
   async update(id, data) {
-    return await this.nombreColeccion.findByIdAndUpdate({ _id: id }, data, {
+    return await this.collection.findByIdAndUpdate({ _id: id }, data, {
       new: true,
     });
   }
 
   async delete(id) {
-    return await this.nombreColeccion.findByIdAndDelete(
+    return await this.collection.findByIdAndDelete(
       { _id: id },
       { rawResult: true }
     );

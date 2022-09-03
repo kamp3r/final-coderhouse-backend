@@ -13,10 +13,11 @@ passport.use(
     {
       session: false,
       passReqToCallback: true,
+      usernameField: 'email'
     },
-    async (req, username, password, done) => {
+    async (req, email, password, done) => {
       try {
-        const user = await userController.list({ email: username });
+        const user = await userController.list({ email: email });
 
         if (!user.length) {
           return done(null, false, loggerWarn.warn('Usuario no existe!'));
@@ -50,27 +51,26 @@ passport.use(
     {
       session: false,
       passReqToCallback: true,
+      usernameField: 'email'
     },
-    (req, username, password, done) => {
+    (req, email, password, done) => {
       try {
         findOrCreateUser = async () => {
-          const user = await userController.list({ email: username });
-
+          const user = await userController.list({ email: email });
           if (user.length) {
-            return done(null, false, loggerWarn.warn('Usuario ya existe'));
+            return done(null, false, loggerWarn.warn('User already exists'));
           }
-
-          let { nombre, direccion, edad, telefono } = req.body;
-          let foto = req.file == undefined ? null : req.file.filename;
+          let { name, address, age, telephone } = req.body;
+          let picture = req.file == undefined ? null : req.file.filename;
 
           const newUser = {
-            email: username,
+            email: email,
             password: createHash(password),
-            nombre: nombre,
-            direccion: direccion,
-            edad: edad,
-            telefono: telefono,
-            foto: foto,
+            name: name,
+            address: address,
+            age: age,
+            telephone: telephone,
+            picture: picture,
           };
 
           const userSaved = await userController.save(newUser);

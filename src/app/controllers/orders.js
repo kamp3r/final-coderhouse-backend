@@ -15,8 +15,8 @@ class OrderController {
         return await this.orderDao.readId(id);
     }
 
-    async save(cliente, carrito) {
-        return await this.orderDao.create(cliente, carrito);
+    async save(client, cart) {
+        return await this.orderDao.create(client, cart);
     }
 
     async update(id, data) {

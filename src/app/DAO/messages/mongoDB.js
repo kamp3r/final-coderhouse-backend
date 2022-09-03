@@ -9,7 +9,7 @@ class MongoDBDao extends IDao {
   constructor() {
     super();
 
-    this.nombreColeccion = messageModel;
+    this.collection = messageModel;
     this.conectarDB();
   }
 
@@ -27,23 +27,23 @@ class MongoDBDao extends IDao {
   }
 
   async create(message) {
-    return this.nombreColeccion.create(message);
+    return this.collection.create(message);
   }
 
   async read() {
-    return await this.nombreColeccion.find({});
+    return await this.collection.find({});
   }
 
   async readId(id) {
-    return await this.nombreColeccion.findById(id);
+    return await this.collection.findById(id);
   }
 
   async update(id, data) {
-    return await this.nombreColeccion.findOneAndUpdate({ _id: id }, data);
+    return await this.collection.findOneAndUpdate({ _id: id }, data);
   }
 
   async delete(id) {
-    return await this.nombreColeccion.deleteOne({ _id: id });
+    return await this.collection.deleteOne({ _id: id });
   }
 }
 

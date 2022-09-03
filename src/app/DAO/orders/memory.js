@@ -17,45 +17,45 @@ class MemoryDao extends IDao {
     return instaciaMemory;
   }
 
-  create(cliente, carrito) {
-    let nuevaOrden = {
+  create(client, cart) {
+    let newOrder = {
       id: uuidv4(),
-      estado: 'generada',
-      productos: carrito.map((e) => {
+      status: 'generated',
+      products: cart.map((e) => {
         return {
           id: uuidv4(),
-          codigo: e.producto.codigo,
-          nombre: e.producto.nombre,
-          descripcion: e.producto.descripcion,
-          precio: e.producto.precio,
-          foto: e.producto.foto,
-          cantidad: e.cantidad,
+          code: e.producto.code,
+          name: e.producto.name,
+          description: e.producto.description,
+          price: e.producto.price,
+          picture: e.producto.picture,
+          qty: e.qty,
         };
       }),
-      email: cliente.email,
-      direccion: cliente.direccion,
+      email: client.email,
+      address: client.address,
       timestamp: new Date().toLocaleString(),
     };
-    this.orders.push(nuevaOrden);
-    return nuevaOrden;
+    this.orders.push(newOrder);
+    return newOrder;
   }
 
   read(query) {
-    let ordenesCliente = this.orders.filter((e) => e.email == query.email);
-    return ordenesCliente;
+    let orderesclient = this.orders.filter((e) => e.email == query.email);
+    return orderesclient;
   }
 
   readId(id) {
-    let orden = this.orders.filter((e) => e.id == id);
-    return orden[0];
+    let order = this.orders.filter((e) => e.id == id);
+    return order[0];
   }
 
   update(id, data) {
-    let orden = this.orders.filter((p) => p.id == id);
-    if (orden.length) {
-      let ordenActualizada = Object.assign(orden[0], data);
-      ordenActualizada.timestamp = new Date().toLocaleString();
-      return ordenActualizada;
+    let order = this.orders.filter((p) => p.id == id);
+    if (order.length) {
+      let orderUpdate = Object.assign(order[0], data);
+      orderUpdate.timestamp = new Date().toLocaleString();
+      return orderUpdate;
     } else {
       return false;
     }
@@ -64,8 +64,8 @@ class MemoryDao extends IDao {
   delete(id) {
     let index = this.orders.findIndex((e) => e.id == id);
     if (index >= 0) {
-      const ordenEliminada = this.orders.splice(index, 1);
-      return ordenEliminada[0];
+      const orderDeleted = this.orders.splice(index, 1);
+      return orderDeleted[0];
     } else {
       return false;
     }

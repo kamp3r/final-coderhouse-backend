@@ -2,16 +2,16 @@ const mongoose = require('mongoose');
 
 const schema = mongoose.Schema({
   email: { type: String, required: true },
-  cuerpo: { type: String, required: true },
-  tipo: {
+  body: { type: String, required: true },
+  type: {
     type: String,
-    enum: ['usuario', 'sistema'],
-    default: 'usuario',
+    enum: ['user', 'system'],
+    default: 'user',
     required: true,
   },
   fyh: { type: Date, default: Date.now },
 });
 
-const Message = mongoose.model('mensajes', schema);
+const Message = mongoose.model('messages', schema);
 
 module.exports = Message;

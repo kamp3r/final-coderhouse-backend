@@ -1,18 +1,22 @@
-const productRouter = require('./products.routes')
-const authRouter = require('./auth.routes')
-const chatRouter = require('./chat.routes')
-const orderRouter = require('./orders.routes')
-const cartRouter = require('./cart.routes')
+const swaggerUI = require('swagger-ui-express')
+const swaggerJSDoc = require('swagger-jSDoc');
+const productRouter = require('./products.routes');
+const authRouter = require('./auth.routes');
+const chatRouter = require('./chat.routes');
+const orderRouter = require('./orders.routes');
+const cartRouter = require('./cart.routes');
 const checkAuthentication = require('../app/middlewares/checkAuthentication');
-const viewsRouter = require('./views.routes')
+const viewsRouter = require('./views.routes');
+const specs = require('../docs/specs')
 
-const routerAPI = (app) =>{
-    app.use('/productos', productRouter)
-    app.use('/carrito',checkAuthentication, authRouter)
-    app.use('/ordenes',checkAuthentication, orderRouter)
-    app.use('/auth', cartRouter)
-    app.use('/', viewsRouter)
-    app.use(chatRouter)
-}
+const routerAPI = (app) => {
+  app.use('/products', productRouter);
+  app.use('/cart', checkAuthentication, cartRouter);
+  app.use('/orders', checkAuthentication, orderRouter);
+  app.use('/auth', authRouter);
+  app.use('/api-docs',swaggerUI.serve, swaggerUI.setup(swaggerJSDoc(specs)))
+  app.use('/', viewsRouter);
+  app.use(chatRouter);
+};
 
-module.exports = routerAPI
+module.exports = routerAPI;

@@ -1,7 +1,7 @@
 const { check } = require('express-validator');
 
 const signupReqValidation = [
-  check('username')
+  check('email')
     .exists()
     .notEmpty()
     .withMessage('El campo username es requerido')
@@ -13,25 +13,25 @@ const signupReqValidation = [
     .withMessage('El campo password es requerido')
     .isString()
     .withMessage('El campo password debe ser de tipo string'),
-  check('nombre')
+  check('name')
     .exists()
     .notEmpty()
     .withMessage('El campo nombre es requerido')
     .isString()
     .withMessage('El campo nombre debe ser de tipo string'),
-  check('direccion')
+  check('address')
     .exists()
     .notEmpty()
     .withMessage('El campo dirección es requerido')
     .isString()
     .withMessage('El campo direccion debe ser de tipo string'),
-  check('edad')
+  check('age')
     .exists()
     .notEmpty()
     .withMessage('El campo edad es requerido')
     .isInt({ min: 18 })
     .withMessage('El campo edad debe ser de tipo entero mayor a 18 años'),
-  check('telefono')
+  check('telephone')
     .exists()
     .notEmpty()
     .withMessage('El campo telefono es requerido')
@@ -40,7 +40,7 @@ const signupReqValidation = [
 ];
 
 const loginReqValidation = [
-  check('username')
+  check('email')
     .exists()
     .notEmpty()
     .withMessage('El campo username es requerido')

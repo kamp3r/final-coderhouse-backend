@@ -18,21 +18,21 @@ class MemoryDao extends IDao {
     return instaciaMemory;
   }
 
-  create(id_producto, cantidad, id_cliente) {
-    const producto = memoryDaoProducts.readId(id_producto);
+  create(id_product, qty, id_client) {
+    const product = memoryDaoProducts.readId(id_product);
     let previousItem = this.shoppingCarts.filter((e) => {
-      return e.producto.id == id_producto && e.client_id == id_cliente;
+      return e.product.id == id_product && e.client_id == id_client;
     });
     if (previousItem.length) {
-      previousItem[0].cantidad += cantidad;
+      previousItem[0].qty += qty;
       return previousItem[0];
     } else {
       const newProductCart = {
         id: uuidv4(),
         timestamp: new Date().toLocaleString(),
-        producto: producto,
-        cantidad: cantidad,
-        client_id: id_cliente,
+        product: product,
+        qty: qty,
+        client_id: id_client,
       };
       this.shoppingCarts.push(newProductCart);
       return newProductCart;
@@ -40,10 +40,10 @@ class MemoryDao extends IDao {
   }
 
   read(client_id) {
-    const carritoUser = this.shoppingCarts.filter(
+    const cartUser = this.shoppingCarts.filter(
       (e) => e.client_id == client_id
     );
-    return carritoUser;
+    return cartUser;
   }
 
   readId(id) {

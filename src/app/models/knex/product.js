@@ -6,20 +6,14 @@ module.exports.createTable = async (tableName) => {
   if (!exists) {
     return await knex.schema.createTable(tableName, (table) => {
       table.increments('id');
-      table.integer('product_id').unsigned().notNullable();
-      table.integer('cantidad').unsigned().notNullable();
-      table.integer('client_id').unsigned().notNullable();
+      table.string('name').notNullable();
+      table.string('description').notNullable();
+      table.string('code').unique().notNullable();
+      table.string('picture');
+      table.string('category');
+      table.float('price').notNullable();
+      table.integer('stock').unsigned().notNullable();
       table.timestamp('timestamp').defaultTo(knex.fn.now());
-      table
-        .foreign('product_id')
-        .references('id')
-        .inTable('productos')
-        .onDelete('CASCADE');
-      table
-        .foreign('client_id')
-        .references('id')
-        .inTable('usuarios')
-        .onDelete('CASCADE');
     });
   }
 };

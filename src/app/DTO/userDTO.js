@@ -2,21 +2,21 @@ class UserDTO {
   #id;
   #email;
   #password;
-  #nombre;
-  #direccion;
-  #edad;
-  #telefono;
-  #foto;
+  #name;
+  #adress;
+  #age;
+  #telephone;
+  #picture;
 
-  constructor(id, email, password, nombre, direccion, edad, telefono, foto) {
+  constructor(id, email, password, name, adress, age, telephone, picture) {
     this.#id = id;
     this.#email = email;
     this.#password = password;
-    this.#nombre = nombre;
-    this.#direccion = direccion;
-    this.#edad = edad;
-    this.#telefono = telefono;
-    this.#foto = foto;
+    this.#name = name;
+    this.#adress = adress;
+    this.#age = age;
+    this.#telephone = telephone;
+    this.#picture = picture;
   }
 
   getId() {
@@ -31,24 +31,24 @@ class UserDTO {
     return this.#password;
   }
 
-  getNombre() {
-    return this.#nombre;
+  getname() {
+    return this.#name;
   }
 
-  getDireccion() {
-    return this.#direccion;
+  getadress() {
+    return this.#adress;
   }
 
-  getEdad() {
-    return this.#edad;
+  getage() {
+    return this.#age;
   }
 
-  getTelefono() {
-    return this.#telefono;
+  gettelephone() {
+    return this.#telephone;
   }
 
-  getFoto() {
-    return this.#foto;
+  getpicture() {
+    return this.#picture;
   }
 
   ToJSON() {
@@ -56,11 +56,11 @@ class UserDTO {
       id: this.#id,
       email: this.#email,
       password: this.#password,
-      nombre: this.#nombre,
-      direccion: this.#direccion,
-      edad: this.#edad,
-      telefono: this.#telefono,
-      foto: this.#foto,
+      name: this.#name,
+      adress: this.#adress,
+      age: this.#age,
+      telephone: this.#telephone,
+      picture: this.#picture,
     };
   }
 }

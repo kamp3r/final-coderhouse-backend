@@ -9,7 +9,7 @@ class MySQLDao extends IDao {
   constructor() {
     super();
 
-    this.tableName = 'carritos';
+    this.tableName = 'cart';
     createTable(this.tableName);
   }
 
@@ -21,7 +21,7 @@ class MySQLDao extends IDao {
     return instanciaMySQL;
   }
 
-  async create(product_id, cantidad, client_id) {
+  async create(product_id, qty, client_id) {
     let data = await knex
       .from(this.tableName)
       .select('*')
@@ -29,12 +29,12 @@ class MySQLDao extends IDao {
       .andWhere('client_id', client_id);
 
     if (data.length) {
-      data[0].cantidad += cantidad;
-      return await this.update(data[0].id, { cantidad: data[0].cantidad });
+      data[0].qty += qty;
+      return await this.update(data[0].id, { qty: data[0].qty });
     } else {
       return await knex(this.tableName).insert({
         product_id: product_id,
-        cantidad: cantidad,
+        qty: qty,
         client_id: client_id,
       });
     }
@@ -43,19 +43,19 @@ class MySQLDao extends IDao {
   async read(client_id) {
     let rows = await knex
       .from(this.tableName)
-      .join('productos', 'product_id', '=', 'productos.id')
+      .join('products', 'product_id', '=', 'products.id')
       .select(
-        'carritos.id',
-        'carritos.timestamp',
-        'carritos.product_id',
-        'carritos.cantidad',
-        'carritos.client_id',
-        'productos.nombre',
-        'productos.descripcion',
-        'productos.codigo',
-        'productos.foto',
-        'productos.precio',
-        'productos.stock'
+        'cart.id',
+        'cart.timestamp',
+        'cart.product_id',
+        'cart.qty',
+        'cart.client_id',
+        'product.name',
+        'product.description',
+        'product.code',
+        'product.picture',
+        'product.price',
+        'product.stock'
       )
       .where('client_id', client_id);
     let items = rows.map((element) => {
@@ -65,52 +65,52 @@ class MySQLDao extends IDao {
         producto: {
           id: element.product_id,
           timestamp: element.timestamp,
-          nombre: element.nombre,
-          descripcion: element.descripcion,
-          codigo: element.codigo,
-          foto: element.foto,
-          precio: element.precio,
+          name: element.name,
+          description: element.description,
+          code: element.code,
+          picture: element.picture,
+          price: element.price,
           stock: element.stock,
         },
-        cantidad: element.cantidad,
+        qty: element.qty,
       };
     });
     return items;
   }
 
   async readId(id) {
-    let carrito = await knex
+    let cart = await knex
       .from(this.tableName)
-      .join('productos', 'product_id', '=', 'productos.id')
+      .join('product', 'product_id', '=', 'product.id')
       .select(
-        'carritos.id',
-        'carritos.timestamp',
-        'carritos.cantidad',
-        'carritos.product_id',
-        'carritos.client_id',
-        'productos.nombre',
-        'productos.descripcion',
-        'productos.codigo',
-        'productos.foto',
-        'productos.precio',
-        'productos.stock'
+        'cart.id',
+        'cart.timestamp',
+        'cart.qty',
+        'cart.product_id',
+        'cart.client_id',
+        'product.name',
+        'product.description',
+        'product.code',
+        'product.picture',
+        'product.price',
+        'product.stock'
       )
-      .where('carritos.id', id);
+      .where('cart.id', id);
 
-    if (carrito.length == 0) return false;
+    if (cart.length == 0) return false;
     return {
-      id: carrito[0].id,
-      timestamp: carrito[0].timestamp,
+      id: cart[0].id,
+      timestamp: cart[0].timestamp,
       producto: {
-        id: carrito[0].product_id,
-        nombre: carrito[0].nombre,
-        descripcion: carrito[0].descripcion,
-        codigo: carrito[0].codigo,
-        foto: carrito[0].foto,
-        precio: carrito[0].precio,
-        stock: carrito[0].stock,
+        id: cart[0].product_id,
+        name: cart[0].name,
+        description: cart[0].description,
+        code: cart[0].code,
+        picture: cart[0].picture,
+        price: cart[0].price,
+        stock: cart[0].stock,
       },
-      cantidad: carrito[0].cantidad,
+      qty: cart[0].qty,
     };
   }
 

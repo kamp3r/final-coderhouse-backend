@@ -21,8 +21,8 @@ class MemoryDao extends IDao {
     let newMessage = {
       id: uuidv4(),
       email: message.email,
-      cuerpo: message.cuerpo,
-      tipo: message.tipo,
+      body: message.body,
+      type: message.type,
       fyh: new Date().toLocaleString(),
     };
     this.messages.push(newMessage);

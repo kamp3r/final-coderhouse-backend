@@ -8,11 +8,11 @@ module.exports.createTable = async (tableName) => {
       table.increments('id');
       table.string('email').unique().notNullable();
       table.string('password').notNullable();
-      table.string('nombre').notNullable();
-      table.string('direccion').notNullable();
-      table.integer('edad').unsigned().notNullable();
-      table.string('telefono').notNullable();
-      table.string('foto');
+      table.string('name').notNullable();
+      table.string('address').notNullable();
+      table.integer('age').unsigned().notNullable();
+      table.string('telephone').notNullable();
+      table.string('picture');
     });
   }
 };

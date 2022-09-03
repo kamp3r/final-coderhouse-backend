@@ -45,9 +45,10 @@ class MySQLDao extends IDao {
 
   async search(filters) {
     return await knex(this.tableName)
-      .where('nombre', filters.nombre)
-      .orWhere('codigo', filters.codigo)
-      .orWhereBetween('precio', [filters.precioMin, filters.precioMax])
+      .where('name', filters.name)
+      .orWhere('code', filters.code)
+      .orWhere('category', filters.category)
+      .orWhereBetween('price', [filters.priceMin, filters.priceMax])
       .orWhereBetween('stock', [filters.stockMin, filters.stockMax]);
   }
 }

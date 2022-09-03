@@ -7,8 +7,8 @@ module.exports.createTable = async (tableName) => {
     return await knex.schema.createTable(tableName, (table) => {
       table.increments('id');
       table.string('email').notNullable();
-      table.string('cuerpo').notNullable();
-      table.enu('tipo', ['usuario', 'sistema']).defaultTo('usuario');
+      table.string('body').notNullable();
+      table.enu('type', ['user', 'system']).defaultTo('user');
       table.timestamp('fyh').defaultTo(knex.fn.now());
     });
   }

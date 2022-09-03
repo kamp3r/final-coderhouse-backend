@@ -39,11 +39,11 @@ class MySQLDao extends IDao {
         user[0].id,
         user[0].email,
         user[0].password,
-        user[0].nombre,
-        user[0].direccion,
-        user[0].edad,
-        user[0].telefono,
-        user[0].foto
+        user[0].name,
+        user[0].address,
+        user[0].age,
+        user[0].telephone,
+        user[0].picture
       );
       return userDTO.ToJSON();
     } else {

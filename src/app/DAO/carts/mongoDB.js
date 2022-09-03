@@ -9,7 +9,7 @@ class MongoDBDao extends IDao {
   constructor() {
     super();
 
-    this.nombreColeccion = shoppingCartModel;
+    this.collection = shoppingCartModel;
     this.conectarDB();
   }
 
@@ -26,46 +26,46 @@ class MongoDBDao extends IDao {
     await db.connect();
   }
 
-  async create(id_producto, cantidad, id_cliente) {
-    let cant = await this.nombreColeccion.find(
-      { producto: id_producto, cliente: id_cliente },
-      { cantidad }
+  async create(id_product, qty, id_client) {
+    let cant = await this.collection.find(
+      { product: id_product, cliente: id_client },
+      { qty }
     );
     if (cant.length) {
-      cant[0].cantidad += cantidad;
-      return await this.nombreColeccion.findOneAndUpdate(
-        { producto: id_producto, cliente: id_cliente },
-        { cantidad: cant[0].cantidad },
+      cant[0].qty += qty;
+      return await this.collection.findOneAndUpdate(
+        { producto: id_product, cliente: id_client },
+        { qty: cant[0].qty },
         { new: true }
       );
     } else {
-      return await this.nombreColeccion.create({
-        producto: id_producto,
-        cantidad: cantidad,
-        cliente: id_cliente,
+      return await this.collection.create({
+        producto: id_product,
+        qty: qty,
+        cliente: id_client,
       });
     }
   }
 
-  async read(id_cliente) {
-    const data = await this.nombreColeccion
-      .find({ cliente: id_cliente })
+  async read(id_client) {
+    const data = await this.collection
+      .find({ cliente: id_client })
       .populate('producto');
     return data;
   }
 
   async readId(id) {
-    return await this.nombreColeccion.findById(id).populate('producto');
+    return await this.collection.findById(id).populate('producto');
   }
 
   async update(id, data) {
-    return await this.nombreColeccion.findByIdAndUpdate({ _id: id }, data, {
+    return await this.collection.findByIdAndUpdate({ _id: id }, data, {
       new: true,
     });
   }
 
   async delete(id) {
-    let data = await this.nombreColeccion.findByIdAndRemove(
+    let data = await this.collection.findByIdAndRemove(
       { _id: id },
       { rawResult: true }
     );

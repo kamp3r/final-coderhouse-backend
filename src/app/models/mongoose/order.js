@@ -1,19 +1,19 @@
 const mongoose = require('mongoose');
 
 const orderSchema = mongoose.Schema({
-  productos: [
+  products: [
     {
-      codigo: String,
-      nombre: String,
-      descripcion: String,
-      precio: Number,
-      foto: String,
-      cantidad: Number,
+      code: String,
+      name: String,
+      description: String,
+      price: Number,
+      picture: String,
+      qty: Number,
     },
   ],
   email: { type: String, required: true },
-  direccion: { type: String, required: true },
-  estado: { type: String, enum: ['generada', 'enviada'], default: 'generada' },
+  address: { type: String, required: true },
+  status: { type: String, enum: ['generated', 'sended'], default: 'generated' },
   timestamp: { type: Date, default: Date.now },
 });
 
@@ -25,6 +25,6 @@ orderSchema.set('toJSON', {
   },
 });
 
-const Order = mongoose.model('ordenes', orderSchema);
+const Order = mongoose.model('orders', orderSchema);
 
 module.exports = Order;

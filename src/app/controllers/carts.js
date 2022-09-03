@@ -7,16 +7,16 @@ class ShoppingCartController {
         this.shoppingCartDao = daoFactory.getPersistencia('carts', config.PERSISTENCIA);
     }
 
-    async list(id_cliente) {
-        return await this.shoppingCartDao.read(id_cliente);
+    async list(id_client) {
+        return await this.shoppingCartDao.read(id_client);
     }
 
     async listId(id) {
         return await this.shoppingCartDao.readId(id);
     }
 
-    async save(id_producto, cantidad, id_cliente) {
-        return await this.shoppingCartDao.create(id_producto, cantidad, id_cliente);
+    async save(id_product, qty, id_client) {
+        return await this.shoppingCartDao.create(id_producto, qty, id_client);
     }
 
     async update(id, data) {

@@ -9,7 +9,7 @@ const numCPUs = require('os').cpus().length;
 const appMiddleware = require('./app/middlewares/appMiddlewares')
 
 const config = require('./config/config');
-const { loggerInfo, loggerWarn, loggerError } = require('./config/log4js');
+const { loggerInfo, loggerError } = require('./config/log4js');
 
 if (cluster.isMaster && config.MODO_CLUSTER) {
     loggerInfo.info('num CPUs', numCPUs)

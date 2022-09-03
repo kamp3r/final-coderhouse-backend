@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
 const schema = mongoose.Schema({
-  nombre: { type: String, required: true },
-  descripcion: { type: String, required: true },
-  codigo: { type: String, required: true, unique: true },
-  foto: { type: String, required: false },
-  precio: { type: Number, required: true },
+  name: { type: String, required: true },
+  description: { type: String, required: true },
+  code: { type: String, required: true, unique: true },
+  picture: { type: String, required: false },
+  category: { type: String, required: true},
+  price: { type: Number, required: true },
   stock: { type: Number, required: true },
   timestamp: { type: Date, default: Date.now },
 });
@@ -18,6 +19,6 @@ schema.set('toJSON', {
   },
 });
 
-const Product = mongoose.model('productos', schema);
+const Product = mongoose.model('products', schema);
 
 module.exports = Product;

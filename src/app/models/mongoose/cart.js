@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const schema = mongoose.Schema({
   timestamp: { type: Date, default: Date.now },
-  producto: { type: mongoose.Schema.ObjectId, ref: 'productos' },
-  cantidad: { type: Number, require: true },
-  cliente: { type: mongoose.Schema.ObjectId, ref: 'usuarios' },
+  products: { type: mongoose.Schema.ObjectId, ref: 'products' },
+  qty: { type: Number, require: true },
+  client: { type: mongoose.Schema.ObjectId, ref: 'users' },
 });
 
 schema.set('toJSON', {
@@ -15,6 +15,6 @@ schema.set('toJSON', {
   },
 });
 
-const ShoppingCart = mongoose.model('carritos', schema);
+const ShoppingCart = mongoose.model('carts', schema);
 
 module.exports = ShoppingCart;

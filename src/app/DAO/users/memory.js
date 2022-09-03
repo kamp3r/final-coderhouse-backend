@@ -22,11 +22,11 @@ class MemoryDao extends IDao {
       id: uuidv4(),
       email: user.email,
       password: user.password,
-      nombre: user.nombre,
-      direccion: user.direccion,
-      edad: user.edad,
-      telefono: user.telefono,
-      foto: user.foto,
+      name: user.name,
+      address: user.address,
+      age: user.age,
+      telephone: user.telephone,
+      picture: user.picture,
     };
     this.users.push(newUser);
     return this.users[this.users.length - 1];

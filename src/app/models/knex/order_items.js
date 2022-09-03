@@ -1,21 +1,25 @@
 const { mySql } = require('../../../config/config');
 const knex = require('knex')(mySql);
 
-module.exports.createTableOrdersItems = async (tableName) => {
+module.exports.createTable = async (tableName) => {
   const exists = await knex.schema.hasTable(tableName);
   if (!exists) {
     return await knex.schema.createTable(tableName, (table) => {
       table.increments('id');
-      table.integer('order_id').unsigned().notNullable();
       table.integer('product_id').unsigned().notNullable();
-      table.float('price').notNullable();
       table.integer('qty').unsigned().notNullable();
+      table.integer('client_id').unsigned().notNullable();
+      table.timestamp('timestamp').defaultTo(knex.fn.now());
       table
-        .foreign('order_id')
+        .foreign('product_id')
         .references('id')
-        .inTable('order')
+        .inTable('products')
         .onDelete('CASCADE');
-      table.foreign('product_id').references('id').inTable('products');
+      table
+        .foreign('client_id')
+        .references('id')
+        .inTable('users')
+        .onDelete('CASCADE');
     });
   }
 };
