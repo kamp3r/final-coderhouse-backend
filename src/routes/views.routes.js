@@ -1,7 +1,31 @@
-const router = require('express').Router();
-const { loggerInfo, loggerWarn, loggerError } = require('../config/log4js');
-const checkAuthentication = require('../app/middlewares/checkAuthentication')
+const { Router } = require('express');
+const router = Router();
+const { loggerWarn } = require('../config/log4js');
+const config = require('../config/config')
 
+router.get('/chat', (req, res) => {
+  try {
+    res.render('chat');
+  } catch (error) {
+    loggerWarn.warn(`error: ${error.message}`);
+  }
+});
 
+router.get('/chat/:email', (req, res) => {
+  try {
+    res.render('chat', { email: req.params.email });
+  } catch (error) {
+    loggerWarn.warn(`error: ${error.message}`);
+  }
+});
+
+router.get('/serverConfig', (req, res) => {
+    try{
+        res.render('main.hbs', { config: config})
+    }catch(error){
+        loggerWarn.warn(`error: ${error.message}`);
+    }
+}
+)
 
 module.exports = router;

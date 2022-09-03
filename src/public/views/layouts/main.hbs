@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <title>Configuration</title>
+  </head>
+  <body class="container bg-dark">
+    <%- include('./partials/navbar') %> 
+    <div>
+      <ul class="list-group">
+        {{#if config}}
+        <li class="list-group-item list-group-item-success"><b>Enviroment:</b> {{config.NODE_ENV }}</li>
+        <li class="list-group-item list-group-item-success"><b>PORT:</b> {{config.PORT }}</li>
+        <li class="list-group-item list-group-item-success"><b>Persistence</b> {{config.PERSISTENCIA}}</li>
+        <li class="list-group-item list-group-item-success"><b>CLUSTER MODE:</b> {{config.MODO_CLUSTER}}</li>
+        {{#if (eq config.PERSISTENCIA "mongoDB")}}
+        <li class="list-group-item list-group-item-success"><b>MongoURL: </b>{{config.MONGO_URL}}</li>
+        {{/if}}
+        <li class="list-group-item list-group-item-success"><b>Expiration Token:</b> {{config.TOKEN_EXPIRATION_TIME}}</li>
+        <li class="list-group-item list-group-item-success"><b>Mail Admin:</b> {{config.ADMIN_EMAIL}}</li>
+        <li class="list-group-item list-group-item-success"><b>Admin mode:</b> {{config.admin}}</li>
+        {{/if}}
+      </ul>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -13,3 +13,129 @@ SyntaxError: Unexpected token '{'
     at require (node:internal/modules/cjs/helpers:102:18)
     at Function.getPersistencia (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\src\app\DAO\DAOFactory.js:6:28)
     at new ProductController (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\src\app\controllers\products.js:7:38)
+[2022-09-03T11:40:04.711] [ERROR] error - Error: Missing credentials for "PLAIN"
+    at SMTPConnection._formatError (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:787:19)
+    at SMTPConnection.login (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:441:38)
+    at C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-transport\index.js:272:32
+    at SMTPConnection.<anonymous> (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:211:17)
+    at Object.onceWrapper (node:events:641:28)
+    at SMTPConnection.emit (node:events:527:28)
+    at SMTPConnection._actionEHLO (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:1322:14)
+    at SMTPConnection._processResponse (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:950:20)
+    at SMTPConnection._onData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:752:14)
+    at TLSSocket.SMTPConnection._onSocketData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:191:44) {
+  code: 'EAUTH',
+  command: 'API'
+}
+[2022-09-03T11:40:34.262] [ERROR] error - Error: Missing credentials for "PLAIN"
+    at SMTPConnection._formatError (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:787:19)
+    at SMTPConnection.login (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:441:38)
+    at C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-transport\index.js:272:32
+    at SMTPConnection.<anonymous> (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:211:17)
+    at Object.onceWrapper (node:events:641:28)
+    at SMTPConnection.emit (node:events:527:28)
+    at SMTPConnection._actionEHLO (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:1322:14)
+    at SMTPConnection._processResponse (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:950:20)
+    at SMTPConnection._onData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:752:14)
+    at TLSSocket.SMTPConnection._onSocketData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:191:44) {
+  code: 'EAUTH',
+  command: 'API'
+}
+[2022-09-03T11:40:50.138] [ERROR] error - Error: Missing credentials for "PLAIN"
+    at SMTPConnection._formatError (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:787:19)
+    at SMTPConnection.login (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:441:38)
+    at C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-transport\index.js:272:32
+    at SMTPConnection.<anonymous> (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:211:17)
+    at Object.onceWrapper (node:events:641:28)
+    at SMTPConnection.emit (node:events:527:28)
+    at SMTPConnection._actionEHLO (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:1322:14)
+    at SMTPConnection._processResponse (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:950:20)
+    at SMTPConnection._onData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:752:14)
+    at TLSSocket.SMTPConnection._onSocketData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:191:44) {
+  code: 'EAUTH',
+  command: 'API'
+}
+[2022-09-03T11:40:51.619] [ERROR] error - Error: Missing credentials for "PLAIN"
+    at SMTPConnection._formatError (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:787:19)
+    at SMTPConnection.login (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:441:38)
+    at C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-transport\index.js:272:32
+    at SMTPConnection.<anonymous> (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:211:17)
+    at Object.onceWrapper (node:events:641:28)
+    at SMTPConnection.emit (node:events:527:28)
+    at SMTPConnection._actionEHLO (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:1322:14)
+    at SMTPConnection._processResponse (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:950:20)
+    at SMTPConnection._onData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:752:14)
+    at TLSSocket.SMTPConnection._onSocketData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:191:44) {
+  code: 'EAUTH',
+  command: 'API'
+}
+[2022-09-03T11:42:13.877] [ERROR] error - Error: Missing credentials for "PLAIN"
+    at SMTPConnection._formatError (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:787:19)
+    at SMTPConnection.login (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:441:38)
+    at C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-transport\index.js:272:32
+    at SMTPConnection.<anonymous> (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:211:17)
+    at Object.onceWrapper (node:events:641:28)
+    at SMTPConnection.emit (node:events:527:28)
+    at SMTPConnection._actionEHLO (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:1322:14)
+    at SMTPConnection._processResponse (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:950:20)
+    at SMTPConnection._onData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:752:14)
+    at TLSSocket.SMTPConnection._onSocketData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:191:44) {
+  code: 'EAUTH',
+  command: 'API'
+}
+[2022-09-03T11:43:07.086] [ERROR] error - Error: Missing credentials for "PLAIN"
+    at SMTPConnection._formatError (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:787:19)
+    at SMTPConnection.login (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:441:38)
+    at C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-transport\index.js:272:32
+    at SMTPConnection.<anonymous> (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:211:17)
+    at Object.onceWrapper (node:events:641:28)
+    at SMTPConnection.emit (node:events:527:28)
+    at SMTPConnection._actionEHLO (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:1322:14)
+    at SMTPConnection._processResponse (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:950:20)
+    at SMTPConnection._onData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:752:14)
+    at TLSSocket.SMTPConnection._onSocketData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:191:44) {
+  code: 'EAUTH',
+  command: 'API'
+}
+[2022-09-03T11:43:22.527] [ERROR] error - Error: Missing credentials for "PLAIN"
+    at SMTPConnection._formatError (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:787:19)
+    at SMTPConnection.login (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:441:38)
+    at C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-transport\index.js:272:32
+    at SMTPConnection.<anonymous> (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:211:17)
+    at Object.onceWrapper (node:events:641:28)
+    at SMTPConnection.emit (node:events:527:28)
+    at SMTPConnection._actionEHLO (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:1322:14)
+    at SMTPConnection._processResponse (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:950:20)
+    at SMTPConnection._onData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:752:14)
+    at TLSSocket.SMTPConnection._onSocketData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:191:44) {
+  code: 'EAUTH',
+  command: 'API'
+}
+[2022-09-03T11:43:23.286] [ERROR] error - Error: Missing credentials for "PLAIN"
+    at SMTPConnection._formatError (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:787:19)
+    at SMTPConnection.login (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:441:38)
+    at C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-transport\index.js:272:32
+    at SMTPConnection.<anonymous> (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:211:17)
+    at Object.onceWrapper (node:events:641:28)
+    at SMTPConnection.emit (node:events:527:28)
+    at SMTPConnection._actionEHLO (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:1322:14)
+    at SMTPConnection._processResponse (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:950:20)
+    at SMTPConnection._onData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:752:14)
+    at TLSSocket.SMTPConnection._onSocketData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:191:44) {
+  code: 'EAUTH',
+  command: 'API'
+}
+[2022-09-03T11:43:51.011] [ERROR] error - Error: Missing credentials for "PLAIN"
+    at SMTPConnection._formatError (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:787:19)
+    at SMTPConnection.login (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:441:38)
+    at C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-transport\index.js:272:32
+    at SMTPConnection.<anonymous> (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:211:17)
+    at Object.onceWrapper (node:events:641:28)
+    at SMTPConnection.emit (node:events:527:28)
+    at SMTPConnection._actionEHLO (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:1322:14)
+    at SMTPConnection._processResponse (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:950:20)
+    at SMTPConnection._onData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:752:14)
+    at TLSSocket.SMTPConnection._onSocketData (C:\Users\marti\Documents\CoderHouse\Final Backend Coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:191:44) {
+  code: 'EAUTH',
+  command: 'API'
+}
