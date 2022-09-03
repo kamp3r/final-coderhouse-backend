@@ -1,5 +1,4 @@
-const { Router } = require('express');
-const router = Router();
+const router = require('express').Router();
 const passport = require('../app/controllers/auth/passport');
 const upload = require('../app/middlewares/multer');
 const {

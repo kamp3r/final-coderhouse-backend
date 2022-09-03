@@ -11,8 +11,8 @@ class MessageController {
         return await this.messageDao.read();
     }
 
-    async listId(id) {
-        return await this.messageDao.readId(id);
+    async listId(email) {
+        return await this.messageDao.readId(email);
     }
 
     async save(message) {

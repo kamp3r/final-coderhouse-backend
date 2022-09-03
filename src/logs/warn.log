@@ -145,3 +145,6 @@
 [2022-09-03T13:26:38.328] [WARN] warn - Ruta /favicon.ico método GET no implementada
 [2022-09-03T13:27:09.727] [WARN] warn - Ruta /favicon.ico método GET no implementada
 [2022-09-03T13:27:45.801] [WARN] warn - Ruta /favicon.ico método GET no implementada
+[2022-09-03T15:01:01.810] [WARN] warn - Ruta / método GET no implementada
+[2022-09-03T15:01:07.313] [WARN] warn - Ruta /chat método GET no implementada
+[2022-09-03T15:09:34.567] [WARN] warn - Ruta / método GET no implementada

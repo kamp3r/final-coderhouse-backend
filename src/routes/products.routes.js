@@ -1,5 +1,4 @@
-const { Router } = require('express');
-const router = Router();
+const router = require('express').Router();
 const products = require('../app/controllers/products');
 const checkAuthentication = require('../app/middlewares/checkAuthentication');
 const isAdmin = require('../app/middlewares/isAdmin');

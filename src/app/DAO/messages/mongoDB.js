@@ -34,8 +34,8 @@ class MongoDBDao extends IDao {
     return await this.collection.find({});
   }
 
-  async readId(id) {
-    return await this.collection.findById(id);
+  async readId(email) {
+    return await this.collection.find({email: email});
   }
 
   async update(id, data) {

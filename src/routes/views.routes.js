@@ -5,15 +5,15 @@ const config = require('../config/config')
 
 router.get('/chat', (req, res) => {
   try {
-    res.render('chat');
+    res.render('chat.ejs');
   } catch (error) {
     loggerWarn.warn(`error: ${error.message}`);
   }
 });
 
-router.get('/chat/:email', (req, res) => {
+router.get('/chat', (req, res) => {
   try {
-    res.render('chat', { email: req.params.email });
+    res.render('chat.ejs');
   } catch (error) {
     loggerWarn.warn(`error: ${error.message}`);
   }

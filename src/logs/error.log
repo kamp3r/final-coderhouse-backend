@@ -139,3 +139,18 @@ SyntaxError: Unexpected token '{'
   code: 'EAUTH',
   command: 'API'
 }
+[2022-09-03T15:09:43.166] [ERROR] error - Messages not found
+[2022-09-03T15:10:35.665] [ERROR] error - Messages not found
+[2022-09-03T15:23:33.499] [ERROR] error - Messages not found
+[2022-09-03T15:24:31.364] [ERROR] error - Messages not found
+[2022-09-03T15:24:59.928] [ERROR] error - 404
+[2022-09-03T15:25:17.761] [ERROR] error - 404
+[2022-09-03T15:25:50.000] [ERROR] error - 404
+[2022-09-03T15:26:28.875] [ERROR] error - 404
+[2022-09-03T15:27:23.094] [ERROR] error - 404
+[2022-09-03T15:28:16.461] [ERROR] error - 404
+[2022-09-03T15:28:43.037] [ERROR] error - [object Object]
+[2022-09-03T15:29:02.049] [ERROR] error - 404
+[2022-09-03T15:29:16.572] [ERROR] error - Messages not found
+[2022-09-03T15:29:40.141] [ERROR] error - Messages not found
+[2022-09-03T15:30:33.413] [ERROR] error - Messages not found
