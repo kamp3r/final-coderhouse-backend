@@ -1,5 +1,4 @@
-const { Router } = require('express');
-const router = Router();
+const router = require('express').Router();
 const cart = require('../app/controllers/carts');
 const { loggerWarn } = require('../config/log4js');
 
